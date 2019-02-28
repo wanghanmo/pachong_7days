@@ -9,6 +9,7 @@
 - 对参数的数据类型，GET只接受ASCII字符，而POST没有限制。 
 - GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。
 - GET参数通过URL传递，POST放在Request body中。
+
   简单来说，对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。
 ### 代码实现
   这里在Python 3.6.5环境下用requests库里的get方法向[百度一下，你就知道](www.baidu.com)发出一个请求，并将其返回结果输出。 
