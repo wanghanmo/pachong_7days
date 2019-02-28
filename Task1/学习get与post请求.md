@@ -39,21 +39,21 @@ utf-8
 ### 什么是请求头，如何添加请求头？
   HTTP客户程序（例如浏览器），向服务器发送请求的时候必须指明请求类型（一般是GET或者 POST）。如有必要，客户程序还可以选择发送其他的请求头。大多数请求头并不是必需的，但Content-Length除外。对于POST请求来说 Content-Length必须出现。
 　下面是一些最常见的请求头：
-  - Accept：浏览器可接受的MIME类型。
-　- Accept-Charset：浏览器可接受的字符集。
-　- Accept-Encoding：浏览器能够进行解码的数据编码方式，比如gzip。Servlet能够向支持gzip的浏览器返回经gzip编码的HTML页面。许多情形下这可以减少5到10倍的下载时间。
-　- Accept-Language：浏览器所希望的语言种类，当服务器能够提供一种以上的语言版本时要用到。
-　- Authorization：授权信息，通常出现在对服务器发送的WWW-Authenticate头的应答中。
-　- Connection：表示是否需要持久连接。如果Servlet看到这里的值为“Keep- Alive”，或者看到请求使用的是HTTP 1.1（HTTP 1.1默认进行持久连接），它就可以利用持久连接的优点，当页面包含多个元素时（例如Applet，图片），显著地减少下载所需要的时间。要实现这一 点，Servlet需要在应答中发送一个Content-Length头，最简单的实现方法是：先把内容写入 ByteArrayOutputStream，然后在正式写出内容之前计算它的大小。
-　- Content-Length：表示请求消息正文的长度。
-　- Cookie：这是最重要的请求头信息之一
-　- From：请求发送者的email地址，由一些特殊的Web客户程序使用，浏览器不会用到它。
-　- Host：初始URL中的主机和端口。
-　- If-Modified-Since：只有当所请求的内容在指定的日期之后又经过修改才返回它，否则返回304“Not Modified”应答。
-　- Pragma：指定“no-cache”值表示服务器必须返回一个刷新后的文档，即使它是代理服务器而且已经有了页面的本地拷贝。
-　- Referer：包含一个URL，用户从该URL代表的页面出发访问当前请求的页面。
-　- User-Agent：浏览器类型，如果Servlet返回的内容与浏览器类型有关则该值非常有用。
-　- UA-Pixels，UA-Color，UA-OS，UA-CPU：由某些版本的IE浏览器所发送的非标准的请求头，表示屏幕大小、颜色深度、操作系统和CPU类型。
+- Accept：浏览器可接受的MIME类型。
+- Accept-Charset：浏览器可接受的字符集。
+- Accept-Encoding：浏览器能够进行解码的数据编码方式，比如gzip。Servlet能够向支持gzip的浏览器返回经gzip编码的HTML页面。许多情形下这可以减少5到10倍的下载时间。
+- Accept-Language：浏览器所希望的语言种类，当服务器能够提供一种以上的语言版本时要用到。
+- Authorization：授权信息，通常出现在对服务器发送的WWW-Authenticate头的应答中。
+- Connection：表示是否需要持久连接。如果Servlet看到这里的值为“Keep- Alive”，或者看到请求使用的是HTTP 1.1（HTTP 1.1默认进行持久连接），它就可以利用持久连接的优点，当页面包含多个元素时（例如Applet，图片），显著地减少下载所需要的时间。要实现这一 点，Servlet需要在应答中发送一个Content-Length头，最简单的实现方法是：先把内容写入 ByteArrayOutputStream，然后在正式写出内容之前计算它的大小。
+- Content-Length：表示请求消息正文的长度。
+- Cookie：这是最重要的请求头信息之一
+- From：请求发送者的email地址，由一些特殊的Web客户程序使用，浏览器不会用到它。
+- Host：初始URL中的主机和端口。
+- If-Modified-Since：只有当所请求的内容在指定的日期之后又经过修改才返回它，否则返回304“Not Modified”应答。
+- Pragma：指定“no-cache”值表示服务器必须返回一个刷新后的文档，即使它是代理服务器而且已经有了页面的本地拷贝。
+- Referer：包含一个URL，用户从该URL代表的页面出发访问当前请求的页面。
+- User-Agent：浏览器类型，如果Servlet返回的内容与浏览器类型有关则该值非常有用。
+- UA-Pixels，UA-Color，UA-OS，UA-CPU：由某些版本的IE浏览器所发送的非标准的请求头，表示屏幕大小、颜色深度、操作系统和CPU类型。
 
 在爬虫的时候，如果不添加请求头，可能网站会阻止一个用户的登陆，此时我们就需要添加请求头来进行模拟伪装，使用python添加请求头方法如下：
 ```
